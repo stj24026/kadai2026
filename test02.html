@@ -20,8 +20,23 @@
       <a-entity light="type: directional; intensity: 0.6" position="1 1 1"></a-entity>
 
       <!-- ④ カメラ操作（マウス・スマホで見回せる） -->
-    <a-entity camera look-controls="magicWindowTrackingEnabled: false"
-          rotation="0 270 0"></a-entity>
+         <a-entity id="camera"
+    camera
+    look-controls="magicWindowTrackingEnabled: false"
+    rotation="0 0 0">
 </a-entity>
+
+<script>
+  const scene = document.querySelector('a-scene');
+
+  scene.addEventListener('loaded', function () {
+    const camera = document.querySelector('#camera');
+
+    camera.components['look-controls'].yawObject.rotation.y =
+      THREE.MathUtils.degToRad(90);
+  });
+</script>
+   </a-entity>
+    </a-scene>
   </body>
 </html>
