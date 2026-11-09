@@ -19,9 +19,12 @@
       <a-entity light="type: directional; intensity: 0.6" position="1 1 1"></a-entity>
 
       <!-- ④ カメラ操作（マウス・スマホで見回せる） -->
-    <a-entity camera
-    look-controls="magicWindowTrackingEnabled: false"
-    rotation="0 90 0">
+   <script>
+  window.addEventListener('load', () => {
+    const camera = document.querySelector('[camera]');
+    camera.setAttribute('rotation', '0 90 0');
+  });
+</script>
 </a-entity>
     </a-scene>
   </body>
